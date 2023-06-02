@@ -7,10 +7,6 @@ const ShowDetails = () => {
   const { showId } = useParams();
   const [show, setShow] = useState(null);
 
-  useEffect(() => {
-    fetchShowDetails();
-  }, []);
-
   const fetchShowDetails = async () => {
     try {
       const response = await axios.get(
@@ -22,6 +18,12 @@ const ShowDetails = () => {
       console.error("Error fetching show details:", error);
     }
   };
+
+  useEffect(() => {
+    if(showId){  
+      fetchShowDetails();
+    }
+  }, [showId,fetchShowDetails]);
 
   if (!show) {
     return <div>Loading...</div>;
