@@ -1,5 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
+import ShowDetails from "./component/ShowDetails";
+import ShowList from "./component/ShowList";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
